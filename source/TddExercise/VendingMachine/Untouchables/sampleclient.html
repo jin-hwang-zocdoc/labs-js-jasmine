@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html>
+        <head>
+            <title>Vending Machine</title>
+            <script src="userInterface.js"></script>
+            <script src="../calculator.js"></script>
+
+            <script src="../../../../lib/jquery.js"></script>
+        </head>
+        <script>
+            var machine = new VendingMachine();
+            var bootstrap = function () {
+
+            };
+
+            var insertAPenny = function () {
+                var ui = new UserInterface("insertCoin", "Penny");
+                machine.processCommand(ui);
+            };
+
+            var insert5Cents = function () {
+                var ui = new UserInterface("insertCoin", "5Cents");
+                machine.processCommand(ui);
+            };
+
+            var insertADime = function() {
+                var ui = new UserInterface("insertCoin", "Dime");
+                machine.processCommand(ui);
+            };
+
+            var insertAQuarter = function() {
+                var ui = new UserInterface("insertCoin", "Quarter");
+                machine.processCommand(ui);
+            };
+
+            var purchaseProduct = function(value) {
+                console.log("purchaseProduct listener");
+                var ui = new UserInterface("purchaseProduct", value);
+                machine.processCommand(ui);
+            };
+
+            var returnChange = function() {
+                var ui = new UserInterface("returnChange");
+                machine.processCommand(ui);
+            }
+        </script>
+
+    <body onload="bootstrap()">
+        <h1>Vending Machine</h1>
+        <div id="dialogue"></div>
+        <h2>commands</h2>
+        <p>insertCoin</p>
+        <p>selectProduct</p>
+        <p>returnChange</p>
+
+        <p>
+            <button onclick="insertAPenny()">Insert A Penny</button>
+            <button onclick="insert5Cents()">Insert A 5 cents coin</button>
+            <button onclick="insertADime()">Insert A Dime</button>
+            <button onclick="insertAQuarter()">Insert A Quarter</button>
+        </p>
+
+        <p>
+            <button value="Monster" onclick="purchaseProduct(value)">Monster</button>
+            <button value="Gatorade" onclick="purchaseProduct(value)">Gatorade</button>
+            <button value="SevenUp" onclick="purchaseProduct(value)">Seven Up</button>
+        </p>
+
+        <p>
+            <button onclick="returnChange()">Return Change</button>
+        </p>
+    </body>
+</html>
